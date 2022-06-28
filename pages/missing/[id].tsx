@@ -83,118 +83,121 @@ const MissingSlug = ({ person }: Person) => {
         description="AV Scanner News Missing Persons in the Antelope Valley. Palmdale, Lancaster, Quartz Hill"
       />
 
-      <MedSectionWithTitle title="Edit missing person">
-        <form className="form-control " onSubmit={onSubmit}>
-          <label htmlFor="name" className="label">
-            <span className="label-text">Name</span>
-          </label>
-          <input
-            className={inputClass}
-            type="text"
-            placeholder="Their Name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <label htmlFor="age" className="label">
-            <span className="label-text">Age</span>
-          </label>
-          <input
-            className={inputClass}
-            type="text"
-            placeholder="Age"
-            name="age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          />
-          <label htmlFor="description" className="label">
-            <span className="label-text">Description</span>
-          </label>
-          <input
-            className={inputClass}
-            type="text"
-            placeholder="Description"
-            name="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <label htmlFor="last seen" className="label">
-            <span className="label-text">Last Seen</span>
-          </label>
-          <input
-            className={inputClass}
-            type="text"
-            placeholder="Last Seen"
-            name="lastSeen"
-            value={lastSeen}
-            onChange={(e) => setLastSeen(e.target.value)}
-          />
+      <section>
+        <h1 className="text-center my-4">Edit missing person</h1>
+        <MedSectionWithTitle>
+          <form className="form-control " onSubmit={onSubmit}>
+            <label htmlFor="name" className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              className={inputClass}
+              type="text"
+              placeholder="Their Name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <label htmlFor="age" className="label">
+              <span className="label-text">Age</span>
+            </label>
+            <input
+              className={inputClass}
+              type="text"
+              placeholder="Age"
+              name="age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
+            <label htmlFor="description" className="label">
+              <span className="label-text">Description</span>
+            </label>
+            <input
+              className={inputClass}
+              type="text"
+              placeholder="Description"
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <label htmlFor="last seen" className="label">
+              <span className="label-text">Last Seen</span>
+            </label>
+            <input
+              className={inputClass}
+              type="text"
+              placeholder="Last Seen"
+              name="lastSeen"
+              value={lastSeen}
+              onChange={(e) => setLastSeen(e.target.value)}
+            />
 
-          <label htmlFor="date missing" className="label">
-            <span className="label-text">Approximate Date Missing</span>
-          </label>
-          <input
-            className={inputClass}
-            type="date"
-            placeholder="Last Seen"
-            name="dateMissing"
-            value={dateMissing}
-            onChange={(e) => setDateMissing(e.target.value)}
-          />
-          <label htmlFor="status" className="label">
-            <span className="label-text">Status</span>
-          </label>
+            <label htmlFor="date missing" className="label">
+              <span className="label-text">Approximate Date Missing</span>
+            </label>
+            <input
+              className={inputClass}
+              type="date"
+              placeholder="Last Seen"
+              name="dateMissing"
+              value={dateMissing}
+              onChange={(e) => setDateMissing(e.target.value)}
+            />
+            <label htmlFor="status" className="label">
+              <span className="label-text">Status</span>
+            </label>
 
-          <select
-            onChange={handleChange}
-            value={status}
-            className="select font-brand"
-          >
-            <option className="font-brand" value="missing">
-              missing
-            </option>
-            <option value="found">found</option>
-            <option value="unknown">unknown</option>
-          </select>
+            <select
+              onChange={handleChange}
+              value={status}
+              className="select font-brand"
+            >
+              <option className="font-brand" value="missing">
+                missing
+              </option>
+              <option value="found">found</option>
+              <option value="unknown">unknown</option>
+            </select>
 
-          <label htmlFor="name" className="label">
-            <span className="label-text">Name</span>
-          </label>
-          <PhotoUpload
-            url={photoUrl}
-            size={150}
-            onUpload={(url: SetStateAction<string>) => {
-              setPhotoUrl(url);
-              // updateProfile({ username, website, avatar_url: url });
-            }}
-          />
+            <label htmlFor="name" className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <PhotoUpload
+              url={photoUrl}
+              size={150}
+              onUpload={(url: SetStateAction<string>) => {
+                setPhotoUrl(url);
+                // updateProfile({ username, website, avatar_url: url });
+              }}
+            />
 
-          <div className="mt-6 mb-2">
+            <div className="mt-6 mb-2">
+              <button
+                type="submit"
+                className={
+                  loading
+                    ? "btn-primary btn btn-block loading"
+                    : "btn-primary btn btn-block"
+                }
+              >
+                Update
+              </button>
+            </div>
+          </form>
+          <div>
             <button
-              type="submit"
+              onClick={handleDelete}
               className={
-                loading
-                  ? "btn-primary btn btn-block loading"
-                  : "btn-primary btn btn-block"
+                deleteLoading
+                  ? "btn-error btn-outline btn btn-block loading"
+                  : "btn-error btn-outline btn btn-block"
               }
             >
-              Update
+              Delete
             </button>
           </div>
-        </form>
-        <div>
-          <button
-            onClick={handleDelete}
-            className={
-              deleteLoading
-                ? "btn-error btn-outline btn btn-block loading"
-                : "btn-error btn-outline btn btn-block"
-            }
-          >
-            Delete
-          </button>
-        </div>
-      </MedSectionWithTitle>
+        </MedSectionWithTitle>
+      </section>
     </>
   );
 };
