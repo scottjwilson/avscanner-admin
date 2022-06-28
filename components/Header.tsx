@@ -15,7 +15,7 @@ export default function Header() {
       <ThemeChanger />
       <div className="flex items-center space-x-4">
         <Navbar />
-        {/* <UserDiv user={user} /> */}
+        <UserDiv user={user} />
       </div>
     </div>
   );
