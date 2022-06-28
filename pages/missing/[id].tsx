@@ -1,4 +1,3 @@
-import FormContainer from "@/components/FormContainer";
 import PhotoUpload from "@/components/PhotoUpload";
 import {
   supabaseClient,
