@@ -1,6 +1,5 @@
-import MedSectionWithTitle from "@/components/MedSectionWithTitle";
+import FormContainer from "@/components/FormContainer";
 import PhotoUpload from "@/components/PhotoUpload";
-import useForm from "@/lib/useForm";
 import {
   supabaseClient,
   supabaseServerClient,
@@ -85,7 +84,7 @@ const MissingSlug = ({ person }: Person) => {
 
       <section>
         <h1 className="text-center my-4">Edit missing person</h1>
-        <MedSectionWithTitle>
+        <FormContainer>
           <form className="form-control " onSubmit={onSubmit}>
             <label htmlFor="name" className="label">
               <span className="label-text">Name</span>
@@ -196,7 +195,7 @@ const MissingSlug = ({ person }: Person) => {
               Delete
             </button>
           </div>
-        </MedSectionWithTitle>
+        </FormContainer>
       </section>
     </>
   );
